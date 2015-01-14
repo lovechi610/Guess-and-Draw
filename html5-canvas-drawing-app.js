@@ -131,6 +131,11 @@ function prepareCanvas()
     //events
     function downevent(e)
 	{
+        if(!this.offsetLeft)
+            this.offsetLeft = e.target.offsetLeft;
+        if(!this.offsetTop)
+            this.offsetTop = e.target.offsetTop;
+        
 		// Mouse down location
 		var mouseX = e.pageX - this.offsetLeft;
 		var mouseY = e.pageY - this.offsetTop;
@@ -194,6 +199,11 @@ function prepareCanvas()
 	}
     
     function moveevent(e) {
+        if(!this.offsetLeft)
+            this.offsetLeft = e.target.offsetLeft;
+        if(!this.offsetTop)
+            this.offsetTop = e.target.offsetTop;
+        
         if(paint==true){
 			addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
 			redraw();
@@ -221,20 +231,20 @@ function prepareCanvas()
     
     // Add touch events
     // ----------------
-    $('#canvas').touchstart(function(e) {
+    $('#canvas').on('touchstart', function(e) {
         var touchEvent = e.originalEvent.changedTouches[0];
         downevent(touchEvent);
     });
     
-    $('#canvas').touchmove(function(e) {
+    $('#canvas').on('touchmove', function(e) {
         var touchEvent = e.originalEvent.changedTouches[0];
         e.preventDefault();
         moveevent(touchEvent);
     });
     
-    $('#canvas').touchend(upevent);
+    $('#canvas').on('touchend', upevent);
     
-    $('#canvas').touchleave(leaveevent);
+    $('#canvas').on('touchleave', leaveevent);
 }
 
 /**
