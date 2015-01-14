@@ -15,7 +15,7 @@
 
 var canvas;
 var context;
-var canvasWidth = 350;
+var canvasWidth = 490;
 var canvasHeight = 220;
 var padding = 25;
 var lineWidth = 8;
