@@ -12,8 +12,29 @@
     	 prepareCanvas();
 });</script>
 <a href="index.html"><img src="images/again.png" width="10%" height="auto" border="0"> </a>
-<a href="guestbook.html"><img src="images/share1.png" width="10%" height="auto" border="0"> </a>
+<a href="javascript:AlertIt();"><img src="images/share1.png" width="10%" height="auto" border="0"> </a>
 <a href="https://www.facebook.com/"><img src="images/fb.png" width="10%" height="auto" border="0"> </a>
+<script type="text/javascript">
+function AlertIt() {
+	//亂數
+	var myrandom=Math.round(Math.random()*2)
+	//訊息清單
+	var messages=new Array()
+	messages[0]="After taking picture of your drawing by screen shot,you can share it here!"
+	messages[1]="After taking picture of your drawing by screen shot,you can share it here!"
+	messages[2]="After taking picture of your drawing by screen shot,you can share it here! "
+	//連結清單
+	var links=new Array()
+	links[0]="guestbook.html"
+	links[1]="guestbook.html"
+	links[2]="guestbook.html"
+	//點下去要顯示
+	var answer = confirm (messages[myrandom])
+	//如果點「是」
+	if (answer)
+	window.location=links[myrandom]
+}
+</script> 
 
   </body>
 </html>
